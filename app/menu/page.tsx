@@ -1,28 +1,40 @@
+import Link from 'next/link'
+
+const services = [
+  {
+    slug: 'dinner',
+    name: 'Dinner',
+    desc: 'Our seasonal evening menu of à la carte and shared plates.',
+  },
+  {
+    slug: 'brunch',
+    name: 'Brunch',
+    desc: 'Weekend brunch served Saturday and Sunday.',
+  },
+  {
+    slug: 'drinks',
+    name: 'Drinks',
+    desc: 'Cocktails, regional wine, and zero-proof options.',
+  },
+]
+
 export default function MenuPage() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-24">
-      <h1 className="text-5xl mb-12">Seasonal Menus</h1>
+      <p className="uppercase tracking-[0.3em] text-amber-400 mb-4">Menus</p>
+      <h1 className="text-5xl font-serif mb-12">Seasonal Menus</h1>
 
-      <div className="space-y-12">
-        <section>
-          <h2 className="text-3xl mb-4">Dinner</h2>
-          <div className="border-b border-zinc-800 pb-4 mb-4">
-            <div className="flex justify-between">
-              <span>Smoked Ribeye</span>
-              <span>$48</span>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-3xl mb-4">Cocktails</h2>
-          <div className="border-b border-zinc-800 pb-4 mb-4">
-            <div className="flex justify-between">
-              <span>Heron Old Fashioned</span>
-              <span>$16</span>
-            </div>
-          </div>
-        </section>
+      <div className="grid md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <Link
+            key={service.slug}
+            href={`/menu/${service.slug}`}
+            className="block border border-zinc-800 rounded-2xl p-8 hover:border-amber-500 transition"
+          >
+            <h2 className="text-2xl font-serif mb-3">{service.name}</h2>
+            <p className="text-zinc-400">{service.desc}</p>
+          </Link>
+        ))}
       </div>
     </main>
   )
