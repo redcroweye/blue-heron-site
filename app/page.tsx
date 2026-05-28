@@ -1,18 +1,11 @@
 import Link from 'next/link'
+import HeroCarousel from '../components/HeroCarousel'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="relative h-screen flex items-center justify-center text-center px-6">
-        <video
-          className="hero-video opacity-40"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/video/hero.mp4" type="video/mp4" />
-        </video>
+        <HeroCarousel />
 
         <div className="relative z-10 max-w-4xl">
           <p className="uppercase tracking-[0.3em] text-amber-400 mb-6">
@@ -43,6 +36,25 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="border-t border-zinc-900 px-6 py-24 text-center">
+        <p className="uppercase tracking-[0.3em] text-amber-400 mb-4">
+          Reservations
+        </p>
+        <h2 className="text-4xl md:text-5xl font-serif mb-6">
+          Join us for dinner
+        </h2>
+        <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
+          Tables are limited and book quickly. Reserve through our booking
+          partner to secure your evening in the Black Hills.
+        </p>
+        <Link
+          href="/reservations"
+          className="inline-block border border-amber-500 px-8 py-3 hover:bg-amber-500 hover:text-black transition"
+        >
+          Reserve a Table
+        </Link>
       </section>
     </main>
   )
